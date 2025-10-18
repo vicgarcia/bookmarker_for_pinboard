@@ -2,6 +2,10 @@
 
 ![bookmarker for pinboard logo](https://raw.github.com/wiki/kristofa/bookmarker_for_pinboard/logo.png)
 
+> [!WARNING]
+> In the beginning of 2026 bookmarker for pinboard will disappear from the App Store. I'm not using Pinboard anymore and don't want to pay the yearly Apple Developer fee to keep this App in the App Store. 
+
+
 Safari App Extension that allows you to submit webpages to your [pinboard](https://pinboard.in/) account.
 
 The App Extension is compatible with Safari 12 or later. It is available in the [App Store](https://itunes.apple.com/de/app/bookmarker-for-pinboard/id1451400394?l=en&mt=12).
