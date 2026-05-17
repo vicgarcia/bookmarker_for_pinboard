@@ -42,9 +42,9 @@ class PinboardApi : NSObject, URLSessionDataDelegate {
                     return
                 }
                 
-                let responseDataAsString = data != nil ? String(data: data!, encoding: .utf8)! : "[No response data]"
+                let responseDataAsString = data.flatMap { String(data: $0, encoding: .utf8) } ?? "[No response data]"
                 if let response = response as? HTTPURLResponse {
-                    
+
                     switch (response.statusCode) {
                         case 200 :
                             let responseToReturn = PinboardApiResponseParser.parseDefaultResponse(body: data ?? Data())
@@ -90,7 +90,7 @@ class PinboardApi : NSObject, URLSessionDataDelegate {
                     return
                 }
                 
-                let responseDataAsString = data != nil ? String(data: data!, encoding: .utf8)! : "[No response data]"
+                let responseDataAsString = data.flatMap { String(data: $0, encoding: .utf8) } ?? "[No response data]"
                 if let response = response as? HTTPURLResponse {
                     switch (response.statusCode) {
                         case 200 :
@@ -134,7 +134,7 @@ class PinboardApi : NSObject, URLSessionDataDelegate {
                     return
                 }
                 
-                let responseDataAsString = data != nil ? String(data: data!, encoding: .utf8)! : "[No response data]"
+                let responseDataAsString = data.flatMap { String(data: $0, encoding: .utf8) } ?? "[No response data]"
                 if let response = response as? HTTPURLResponse {
                     switch (response.statusCode) {
                         case 200 :
