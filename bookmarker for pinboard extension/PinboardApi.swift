@@ -12,14 +12,12 @@ class PinboardApi : NSObject, URLSessionDataDelegate {
     
     func add(apiToken: String, pinboardUrl: PinboardUrl, completionHandler: @escaping (PinboardUrl, PinboardApiResponseNoPayload) -> Void) -> Void {
         
-        let updatedTitle = pinboardUrl.title.replacingOccurrences(of: " ", with: "+")
-        
         guard let url = addQueryParams(
             url: PinboardApi.pinboardAddPostUrl,
             newParams:
             [
                 URLQueryItem.init(name:"url", value: pinboardUrl.url),
-                URLQueryItem.init(name: "description", value: updatedTitle),
+                URLQueryItem.init(name: "description", value: pinboardUrl.title),
                 URLQueryItem.init(name: "auth_token", value: apiToken),
                 URLQueryItem.init(name: "extended", value: pinboardUrl.description),
                 URLQueryItem.init(name: "tags", value: pinboardUrl.tags),
