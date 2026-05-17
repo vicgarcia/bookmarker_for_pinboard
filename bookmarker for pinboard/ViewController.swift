@@ -98,7 +98,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "kristofa.pinboard.in-bookmarker.safariappextension") { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: "com.vicg4rcia.pinboard.in-bookmarker.extension") { error in
             if let _ = error {
                 // Insert code to inform the user that something went wrong.
 
