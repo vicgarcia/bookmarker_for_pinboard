@@ -8,9 +8,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
         switch (messageName) {
             case "selectedText" :
-                if let selectedText = userInfo?["text"] {
+                if let selectedText = userInfo?["text"] as? String {
                     DispatchQueue.main.async {
-                        SafariExtensionViewController.shared.descriptionTextField.stringValue = selectedText as! String
+                        SafariExtensionViewController.shared.descriptionTextField.stringValue = selectedText
                     }
                 }
                 else {
