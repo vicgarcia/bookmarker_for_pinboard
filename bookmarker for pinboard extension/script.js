@@ -28,7 +28,7 @@ if (window.top === window) {
                                 // In a. the user selected text will appear in the Description field as expected.
                                 // In b. the Description field will be empty as expected.
                               
-                                newSelection = window.getSelection().toString()
+                                const newSelection = window.getSelection().toString()
                                 if (newSelection == "") {
                                     numberConsecutiveEmptySelections++
                                     if (numberConsecutiveEmptySelections >= 2) {
