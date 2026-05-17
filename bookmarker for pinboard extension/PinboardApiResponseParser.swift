@@ -89,15 +89,13 @@ class PinboardApiResponseParser {
     static func parseTags(body: Data) -> PinboardTagsResponse {
         do {
             let json = try JSONSerialization.jsonObject(with: body, options: [])
-            var tagArray = [PinboardWeightedTag]()
-            if let dictionary = json as? [String: Int] {
-                for (key, value) in dictionary {
-                    tagArray.append(PinboardWeightedTag(tagName: key, tagCount: value))
-                }
+            guard let dictionary = json as? [String: Int] else {
+                return PinboardTagsResponse.Error("Error when parsing tags: unexpected response format")
             }
+            let tagArray = dictionary.map { PinboardWeightedTag(tagName: $0.key, tagCount: $0.value) }
             return PinboardTagsResponse.Success(tagArray)
         } catch let error {
-            return PinboardTagsResponse.Error("Error when parsing tags as returned by the api:  \(error)")
+            return PinboardTagsResponse.Error("Error when parsing tags as returned by the api: \(error)")
         }
     }
 }
